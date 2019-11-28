@@ -11,26 +11,35 @@ try {
     switch ($action) {
 
         case '':
-        require 'Views/index.php';
-        break;
+            require 'Views/index.php';
+            break;
 
         case 'index':
-        require 'Views/index.php';
-        break;
+            require 'Views/index.php';
+            break;
 
         case 'dates':
-        $date = new DatesController;
-        $date->getDateC();
-        break;
+            $date = new DatesController;
+            $date->getDateC();
+            break;
 
         case 'mdp':
-        require 'Views/mdp.php';
-        break;
+            require 'Views/mdp.php';
+            break;
+
+        case 'addValue':
+            $data = new AjaxController;
+            $data->addValue($_POST['nom']);
+            break;
 
         case 'ajoutDate':
             $rqDate = new DatesController;
             $rqDate->addDateC($_POST['datefr']);
-        break;
+            break;
+
+        case 'ajax':
+            require 'Views/ajax.php';
+            break;
 
         default:
             require 'Views/404.php';

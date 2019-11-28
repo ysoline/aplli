@@ -40,7 +40,33 @@ function docopy() {
 }
 
 //Dates
-$('#datepicker').datepicker({
-    format: 'dd/mm/yyyy',
-    locale: 'fr-fr'
-});
+// var $j = jQuery.noConflict();
+// $j('#datepicker').datepicker({
+//     format: 'dd/mm/yyyy',
+//     locale: 'fr-fr'
+// });
+
+$(document).ready(function(){
+
+    $("#submit").click(function(e){
+        e.preventDefault();
+
+        if($('#nom').val() != ''){
+            $.post(
+            'addValue',
+            {
+                nom : $('#nom').val()
+            },
+            function(data){
+                if(data =="Success"){
+                    console.log('OK')
+                }else{
+                    console.log('Echec')
+                }            
+            }
+        )
+        }else{
+            console.log('Champs vide')
+        }        
+    })
+})
