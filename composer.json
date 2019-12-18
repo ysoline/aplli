@@ -1,0 +1,12 @@
+{
+    "name": "jpi/composer",
+    "require": {
+        "daveismyname/sql-import": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "Julie",
+            "email": "juliepilarski@yahoo.fr"
+        }
+    ]
+}

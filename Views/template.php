@@ -4,6 +4,9 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/>
+    <link href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css"/>
+    <link href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css"/>
     <link rel='stylesheet' href='public/style.css'>
 
     <title><?= $title ?></title>
@@ -26,6 +29,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="ajax">Ajax</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="datatable">Datatable</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="bdd">BDD</a>
+            </li>
         </ul>
     </nav>
 
@@ -38,7 +47,13 @@
 <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
 <script src="https://unpkg.com/gijgo@1.9.13/js/messages/messages.fr-fr.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/select/1.1.2/js/dataTables.select.min.js"></script>
+<script type="text/javascript" src="https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
 <script src="public/script.js"></script>
+<script src="public/datatable.js"></script>
 </body>
 
 </html>

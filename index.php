@@ -1,4 +1,6 @@
 <?php
+use Daveismyname\SqlImport\Import;
+require('vendor/autoload.php');
 require('Autoloader.php');
 Autoloader::register();
 session_start();
@@ -38,7 +40,31 @@ try {
             break;
 
         case 'ajax':
-            require 'Views/ajax.php';
+            $req = new AjaxController;
+            $req->getValue();
+            break;
+
+        case 'datatable':
+            require 'Views/datatable.php';
+            break;
+
+        case 'bdd':
+            require 'Views/bdd.php';
+            break;
+
+        case 'addBdd':
+            $addBdd = new SocietyController;
+            $addBdd->newBdd($_POST['soc_name'], $_POST['bdd_name']);      
+            
+            //Permet l'import d'une base de données (avec données quand données stockées)
+            $filename = 'appli.sql';
+            $username = 'root';
+            $password = '';
+            $database = $_POST['bdd_name'];
+            $host = 'localhost';
+            $dropTables = true;
+
+            $newImport = new Import($filename, $username, $password, $database, $host, $dropTables);
             break;
 
         default:

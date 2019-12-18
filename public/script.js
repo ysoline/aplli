@@ -1,5 +1,5 @@
 var btncopy = document.querySelector('.js-copy');
-if(btncopy) {
+if (btncopy) {
     btncopy.addEventListener('click', docopy);
 }
 
@@ -8,7 +8,7 @@ function docopy() {
     // Cible de l'élément qui doit être copié
     var target = this.dataset.target;
     var fromElement = document.querySelector(target);
-    if(!fromElement) return;
+    if (!fromElement) return;
 
     // Sélection des caractères concernés
     var range = document.createRange();
@@ -24,8 +24,7 @@ function docopy() {
             // La copie a réussi
             alert('Copié !');
         }
-    }
-    catch(err) {
+    } catch (err) {
         // Une erreur est surevnue lors de la tentative de copie
         alert(err);
     }
@@ -46,27 +45,49 @@ function docopy() {
 //     locale: 'fr-fr'
 // });
 
-$(document).ready(function(){
+//Envoi d'un formulaire en ajax
+$(document).ready(function () {
 
-    $("#submit").click(function(e){
+    $("#submit").click(function (e) {
         e.preventDefault();
 
-        if($('#nom').val() != ''){
-            $.post(
-            'addValue',
-            {
-                nom : $('#nom').val()
-            },
-            function(data){
-                if(data =="Success"){
-                    console.log('OK')
-                }else{
-                    console.log('Echec')
-                }            
-            }
-        )
-        }else{
+        if ($('#nom').val() != '') {
+            $.post( //envoie de donnée (ex: formulaire)
+                'addValue', {
+                    nom: $('#nom').val()
+                },
+                function (data) {
+                    if (data == "Success") {
+                        console.log('OK')
+                        $('#content').load('ajax #content')
+                        document.getElementById('nom').value=''
+                        $('#ajoutForm .close').click()
+                    } else {
+                        console.log('Echec')
+                    }
+                }
+            )
+        } else {
             console.log('Champs vide')
-        }        
+        }
     })
 })
+
+//Revevoir des données avec ajax (donnée reçu de php)
+
+// $(document).ready(function () {
+
+//     $('#btn_click').click(function () {
+
+//         $.get(
+//             'getAjax',
+//             returnData
+//         )
+
+//         function returnData() {
+//             console.log('Refresh')
+//             $('#content').load('ajax #content')
+//         }
+//     })
+
+// })

@@ -14,4 +14,14 @@ class AjaxController
             // throw new exception('Veuillez remplir le champs demandé');
         }
     }
+
+    public function getValue()
+    {
+
+        $ajaxManager = new AjaxManager;
+        $ajax=$ajaxManager->getAjax();
+
+        require('Views/ajax.php');
+        return $ajax;
+    }
 }
