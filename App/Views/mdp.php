@@ -70,5 +70,5 @@ if(!empty($_POST['mdp_1'])&& !empty($_POST['mdp_2'])){
 ?>
 
 <?php $content = ob_get_clean();
-require('Views/template.php');
+require('App/Views/template.php');
 ?>

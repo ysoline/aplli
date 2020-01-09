@@ -35,5 +35,5 @@ $title = 'Dates Format';
 
 
 <?php $content = ob_get_clean();
-require('Views/template.php');
+require('App/Views/template.php');
 ?>

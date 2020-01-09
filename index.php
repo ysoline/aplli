@@ -1,8 +1,12 @@
 <?php
-use Daveismyname\SqlImport\Import;
+
+use App\Controllers\AuthController;
+use App\Controllers\SocietyController;
+
 require('vendor/autoload.php');
-require('Autoloader.php');
-Autoloader::register();
+//require('Autoloader.php');
+
+//Autoloader::register();
 session_start();
 
 $action = '';
@@ -13,11 +17,11 @@ try {
     switch ($action) {
 
         case '':
-            require 'Views/index.php';
+            require 'App/Views/index.php';
             break;
 
         case 'index':
-            require 'Views/index.php';
+            require 'App/Views/index.php';
             break;
 
         case 'dates':
@@ -26,7 +30,7 @@ try {
             break;
 
         case 'mdp':
-            require 'Views/mdp.php';
+            require 'App/Views/mdp.php';
             break;
 
         case 'addValue':
@@ -45,30 +49,72 @@ try {
             break;
 
         case 'datatable':
-            require 'Views/datatable.php';
+            require 'App/Views/datatable.php';
             break;
 
         case 'bdd':
-            require 'Views/bdd.php';
+            require 'App/Views/bdd.php';
+            break;
+
+        case 'utilisateurs':
+            require 'App/Views/users.php';
+
             break;
 
         case 'addBdd':
             $addBdd = new SocietyController;
-            $addBdd->newBdd($_POST['soc_name'], $_POST['bdd_name']);      
-            
-            //Permet l'import d'une base de données (avec données quand données stockées)
-            $filename = 'appli.sql';
-            $username = 'root';
-            $password = '';
-            $database = $_POST['bdd_name'];
-            $host = 'localhost';
-            $dropTables = true;
+            $addBdd->newBdd($_POST['soc_name'], $_POST['bdd_name']);
+            break;
 
-            $newImport = new Import($filename, $username, $password, $database, $host, $dropTables);
+        case 'checkSociety':
+            $society = new SocietyController;
+            $society->checkSociety();
+            break;
+
+        case 'auth':
+            $userAuth = new AuthController;
+            $userAuth->loginIn();
+            break;
+
+        case 'accueil':
+            require 'App/Views/accueil.php';
+            break;
+
+        case 'enregistrement':
+            require 'App/Views/register.php';
+            break;
+
+        case 'register':
+            $newUser = new AuthController;
+            $newUser->register();
+            break;
+
+        case 'monCompte':
+            $newUser = new AuthController;
+            $newUser->checkInfo();
+            break;
+
+        case 'deconnexion':
+            $newUser = new AuthController;
+            $newUser->logout();
+            break;
+
+        case 'entreprise':
+            $societys = new SocietyController;
+            $societys->getAllSocietys();
+            break;
+
+        case 'getUserOfEntreprise':
+            $user = new SocietyController;
+            $user->getUserOfSociety();
+            break;
+
+        case 'notLog':
+            require('App/Views/notLog.php');
             break;
 
         default:
-            require 'Views/404.php';
+            require 'App/Views/404.php';
             break;
     }
 } catch (Exception $e) {

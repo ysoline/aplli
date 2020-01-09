@@ -6,7 +6,8 @@ class DatesController{
 
         if(!empty($_POST['datefr'])){
 
-            $datemodif= strtotime($_POST['datefr']);
+            $date = $_POST['datefr'];
+            $datemodif= strtotime($date);
             $newformat= date('Y/m/d', $datemodif);
 
             $dateManager = new DatesManager;

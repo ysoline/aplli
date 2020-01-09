@@ -41,25 +41,8 @@ CREATE TABLE IF NOT EXISTS `ajax` (
 
 INSERT INTO `ajax` (`id`, `test`) VALUES
 (1, 'test'),
-(2, 'test'),
-(3, 'test1'),
-(4, 'test2'),
-(5, 'test3'),
-(6, 'test4'),
-(7, 'test5'),
-(8, 'test6'),
-(9, '5'),
-(10, 'test7'),
-(11, 'test8'),
-(12, 'test9'),
-(13, 'test10'),
-(14, 'test11'),
-(15, 'test12'),
-(16, 'test'),
-(17, 'test'),
-(18, 'Test rewrite'),
-(19, 'test12'),
-(20, 'test13');
+(2, 'test');
+
 
 -- --------------------------------------------------------
 

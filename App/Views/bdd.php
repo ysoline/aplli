@@ -17,6 +17,6 @@ $title = 'Ajout d\'une BDD';
     </form>
 
 <?php $content = ob_get_clean();
-require('template.php');
+require('App/Views/template.php');
 ?> 
 

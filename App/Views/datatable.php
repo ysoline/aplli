@@ -12,5 +12,5 @@ $title = 'Datatable';
     </thead>
 </table>
 <?php $content = ob_get_clean();
-require('Views/template.php');
+require('App/Views/template.php');
 ?>
