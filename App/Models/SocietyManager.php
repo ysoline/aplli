@@ -86,4 +86,44 @@ class SocietyManager extends Manager
 
         return $result;
     }
+
+    /**
+     * Récupère les utilisateurs d'une société
+     *
+     * @param [string] $soc_name  Nom de société
+     * @param [string] $username Nom d'utilisateur
+     * @return void
+     */
+    public function userOfSociety($soc_name, $username){
+        $data= $this->db->prepare('SELECT users.id, username, email, soc_name, society.id FROM access INNER JOIN society ON society.id = id_soc INNER JOIN users ON users.id = id_user WHERE soc_name = ? AND username = ?');
+        $data->execute(array($soc_name, $username));
+        $result = $data->fetch();
+
+        return $result;
+    }
+
+    /**
+     * Ajout un utilisateur à une societé
+     *
+     * @param [type] $id_soc_name Id de société
+     * @param [type] $id_user   Id de l'utilisateur
+     * @return void
+     */
+    public function addUserSoc($id_soc_name, $id_user){
+        $data=$this->db->prepare('INSERT INTO access(id_soc, id_user)  VALUES(?,?)');
+        $data->execute(array($id_soc_name, $id_user));
+    }
+
+    /**
+     * Permet de récupéré l'id d'une société
+     *
+     * @return void
+     */
+    public function getId($soc_name){
+        $data=$this->db->prepare('SELECT id FROM society WHERE soc_name = ?');
+        $data->execute(array($soc_name));
+        $result = $data->fetch();
+
+        return $result;
+    }
 }

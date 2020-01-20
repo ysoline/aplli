@@ -1,8 +1,6 @@
 <?php 
 namespace App\Models;
 
-use Manager;
-
 class AuthManager extends Manager{
 
     private $db;

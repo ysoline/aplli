@@ -204,5 +204,30 @@ $(document).ready(function () {
         }
     } */
 
-    
+
+        $('#user').keyup(function(){
+            console.log('add')
+           user = $('#user').val();
+            soc_name = $('#soc_name1').val();
+
+        $.post(
+            'addUserSociety',
+            {
+                user : user,
+                soc_name : soc_name
+            },
+            function(data){
+                if(data == "Success"){
+                    console.log('ok')
+                    $('#user').addClass('success')
+                    $('#user').removeClass('failed')
+                }else{
+                    console.log('non')                
+                    $('#user').addClass('failed')
+                    $('#user').removeClass('success')
+                }
+            }
+        )
+        })
+   
 })

@@ -1,6 +1,6 @@
 <?php 
 
-include('public/DataTables.php');
+/* include('public/DataTables.php');
 
 use
     DataTables\Editor,
@@ -28,4 +28,4 @@ use
             ) )
 
             ->process( $_POST );
-            ->json();
+            ->json();  */

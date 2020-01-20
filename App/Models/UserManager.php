@@ -18,4 +18,15 @@ class UserManager extends Manager{
         return $result;
     }
     
+    /**
+     * Récupère l'id d'un utilisateur
+     */
+
+    public function getId($username){
+        $data= $this->db->prepare('SELECT id FROM users WHERE username = ?');
+        $data->execute(array($username));
+        $result = $data->fetch();
+
+        return $result;
+    }
 }

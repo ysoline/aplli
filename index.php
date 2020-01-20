@@ -2,6 +2,7 @@
 
 use App\Controllers\AuthController;
 use App\Controllers\SocietyController;
+use App\Models\SocietyManager;
 
 require('vendor/autoload.php');
 //require('Autoloader.php');
@@ -109,9 +110,20 @@ try {
             $user->getUserOfSociety();
             break;
 
+            case 'addUserSociety':
+            $user = new SocietyController;
+            $user->addUserSociety();
+            break;
+
         case 'notLog':
             require('App/Views/notLog.php');
             break;
+
+        
+        case 'addUserSoc':
+            $newUser = new SocietyController;
+            $newUser-> addUserSoc();
+        break;
 
         default:
             require 'App/Views/404.php';
@@ -119,5 +131,5 @@ try {
     }
 } catch (Exception $e) {
     $errorMessage = $e->getMessage();
-    require('Views/error.php');
+    require('App/Views/error.php');
 }

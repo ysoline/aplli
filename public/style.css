@@ -83,3 +83,14 @@
 .error_society{
   display:none;
 }
+
+.success{
+  border-color: #28a745;
+  background-color:#28a745;
+  color:white;
+}
+.failed{
+  border-color : red;
+  background-color: red;
+  color: white;
+}
